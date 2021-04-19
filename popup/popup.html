@@ -1,11 +1,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>NASA picture of the day</title>
+        <title>Local Storage + WASM test.</title>
     </head>
     <body>
         <div>
-            <img src="/images/stars.jpg" alt="Display the stars image" />
+            <label for="localStorage">Save to local store:</label>
+            <input type="text" id="localStorage" name="localStorage"><br><br>
+            <input type="button" id="localStorageButton" value="Submit">
         </div>
+        <script>     
+            document.getElementById("localStorageButton").addEventListener("click", displayDate)
+        </script>   
     </body>
 </html>
