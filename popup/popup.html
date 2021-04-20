@@ -4,13 +4,12 @@
         <title>Local Storage + WASM test.</title>
     </head>
     <body>
+        <script src="popup.js"></script>        
         <div>
             <label for="localStorage">Save to local store:</label>
             <input type="text" id="localStorage" name="localStorage"><br><br>
-            <input type="button" id="localStorageButton" value="Submit">
-        </div>
-        <script>     
-            document.getElementById("localStorageButton").addEventListener("click", displayDate)
-        </script>   
+            <button id="setLocalStorage">Set local storage</button>
+            <button id="getLocalStorage">Get local storage</button>
+        </div>  
     </body>
 </html>
