@@ -14,28 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });    
 
     runWASM.addEventListener('click', function() {     
-
         fetchAndInstantiate()
-        
-        /*
-        const response = await fetch(wasmURL)
-        const buffer = await response.arrayBuffer()
-        const obj = await WebAssembly.instantiate(buffer)
-        const output = new Uint8Array(obj.instance.exports.memory.buffer)
-      
-        const pointer = obj.instance.exports.helloWorld()
-      
-        let string = ""
-      
-        for(let i = pointer; output[i]; i++) {
-          string += String.fromCharCode(output[i])
-        }  
-      
-        //document.getElementById('container').textContent = string
-        
-
-        alert(`Path is: ${wasmURL}, output is: ${string}`)
-        */
     });     
 });
 
@@ -43,8 +22,9 @@ async function fetchAndInstantiate() {
 
     const response = await fetch('./main.wasm')
     const buffer = await response.arrayBuffer()
-    //let isValid = await WebAssembly.validate(bytes)
-    const obj = await WebAssembly.instantiate(buffer)
+    // Apprently 'unsafe-eval' must be set in manifest 
+    // for WebAssembly.instantiate to execute in Chrome extension
+    const obj = await WebAssembly.instantiate(buffer) 
     const output = new Uint8Array(obj.instance.exports.memory.buffer)
       
     const pointer = obj.instance.exports.helloWorld()   
@@ -59,34 +39,4 @@ async function fetchAndInstantiate() {
     
 
     alert(`Output is: ${string}`)    
-
-    //const wasmURL = chrome.runtime.getURL("main.wasm")
-    //const response = await fetch('./main.wasm')
-    
-    /*
-    fetch('./main.wasm').then(response =>
-        response.arrayBuffer()
-        ).then(bytes =>
-            WebAssembly.instantiate(bytes, importObject)
-            ).then(results => {
-            results.instance.exports.helloWorld();
-    })
-
-
-    /*
-    const response = await fetch('../out/main.wasm')
-    const buffer = await response.arrayBuffer()
-    const obj = await WebAssembly.instantiate(buffer)
-    const output = new Uint8Array(obj.instance.exports.memory.buffer)
-  
-    const pointer = obj.instance.exports.helloWorld()
-  
-    let string = ""
-  
-    for(let i = pointer; output[i]; i++) {
-      string += String.fromCharCode(output[i])
-    }  
-  
-    document.getElementById('container').textContent = string
-    */
   }
