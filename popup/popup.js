@@ -40,9 +40,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function fetchAndInstantiate() {
-    const wasmURL = chrome.runtime.getURL("main.wasm")
+
+    const response = await fetch('./main.wasm')
+    const buffer = await response.arrayBuffer()
+    //let isValid = await WebAssembly.validate(bytes)
+    const obj = await WebAssembly.instantiate(buffer)
+    const output = new Uint8Array(obj.instance.exports.memory.buffer)
+      
+    const pointer = obj.instance.exports.helloWorld()   
+    
+    let string = ""
+      
+    for(let i = pointer; output[i]; i++) {
+      string += String.fromCharCode(output[i])
+    }  
+  
+    //document.getElementById('container').textContent = string
+    
+
+    alert(`Output is: ${string}`)    
+
+    //const wasmURL = chrome.runtime.getURL("main.wasm")
     //const response = await fetch('./main.wasm')
     
+    /*
     fetch('./main.wasm').then(response =>
         response.arrayBuffer()
         ).then(bytes =>
@@ -51,7 +72,7 @@ async function fetchAndInstantiate() {
             results.instance.exports.helloWorld();
     })
 
-    alert("no error?")
+
     /*
     const response = await fetch('../out/main.wasm')
     const buffer = await response.arrayBuffer()
