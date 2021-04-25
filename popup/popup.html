@@ -5,12 +5,22 @@
     </head>
     <body>
         <script src="popup.js"></script>        
-        <div>
-            <label for="localStorage">Save to local store:</label>
-            <input type="text" id="localStorage" name="localStorage"><br><br>
-            <button id="setLocalStorage">Set local storage</button>
-            <button id="getLocalStorage">Get local storage</button>
-            <button id="runWASM">Run WASM</button>
+        <div id="main">
+            <div id="storage">
+                <h2>Local Storage:</h2>
+                <div id="localStorageContent">&nbsp;</div>
+                <label for="localStorage">Save to local store:</label>
+                <input type="text" id="localStorage" name="localStorage">
+                <button id="setLocalStorage">Set local storage</button>
+                <button id="getLocalStorage">Get local storage</button>
+            </div>
+            <div id="wasm">
+                <h2>WASM Output:</h2>
+                <div id="helloWorldOutput">&nbsp;</div>
+                <button id="runHelloWorld">Run Hello World</button>
+                <div id="factorialOutput">&nbsp;</div>
+                <button id="runFactorial">Run Factorial</button>                
+            </div>
         </div>  
     </body>
 </html>
