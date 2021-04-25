@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchAndInstantiateHelloWorld()
     })  
     
-    runFactorial.addEventListener('click', function() {     
-        fetchAndInstantiateFactorial()
+    runFactorial.addEventListener('click', function() {   
+        const inputValue = document.getElementById('factorialArg').value  
+        fetchAndInstantiateFactorial(inputValue)
     })     
 });
 
@@ -43,7 +44,7 @@ async function fetchAndInstantiateHelloWorld() {
     document.getElementById('helloWorldOutput').textContent = string  
   }
 
-  async function fetchAndInstantiateFactorial() {
+  async function fetchAndInstantiateFactorial(argument) {
 
     const response = await fetch('./factorial.wasm')
     const buffer = await response.arrayBuffer()
@@ -53,5 +54,5 @@ async function fetchAndInstantiateHelloWorld() {
     const output = new Uint8Array(obj.instance.exports.memory.buffer)
       
     // Simple method is possible because factorial returns a number, not a string
-    document.getElementById('factorialOutput').textContent  = obj.instance.exports.factorial(5)    
+    document.getElementById('factorialOutput').textContent  = obj.instance.exports.factorial(argument)    
   }
