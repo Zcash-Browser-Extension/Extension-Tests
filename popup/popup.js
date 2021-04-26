@@ -24,16 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
     })     
 });
 
-async function fetchAndInstantiateHelloWorld() {
-
-    const response = await fetch('./main.wasm')
+async function getWASMObject(path) {
+    const response = await fetch(path)
     const buffer = await response.arrayBuffer()
     // Apprently 'wasm-eval' must be set in manifest 
     // for WebAssembly.instantiate to execute in Chrome extension
     const obj = await WebAssembly.instantiate(buffer) 
-    const output = new Uint8Array(obj.instance.exports.memory.buffer)
-      
-    const pointer = obj.instance.exports.helloWorld()   
+    return(obj)
+}
+
+async function fetchAndInstantiateHelloWorld() {
+    const obj = await getWASMObject('./main.wasm')
+
+    const pointer = obj.instance.exports.helloWorld() 
+    const output = new Uint8Array(obj.instance.exports.memory.buffer)  
     
     let string = ""
       
@@ -44,15 +48,9 @@ async function fetchAndInstantiateHelloWorld() {
     document.getElementById('helloWorldOutput').textContent = string  
   }
 
-  async function fetchAndInstantiateFactorial(argument) {
-
-    const response = await fetch('./factorial.wasm')
-    const buffer = await response.arrayBuffer()
-    // Apprently 'wasm-eval' must be set in manifest 
-    // for WebAssembly.instantiate to execute in Chrome extension
-    const obj = await WebAssembly.instantiate(buffer) 
-    const output = new Uint8Array(obj.instance.exports.memory.buffer)
+async function fetchAndInstantiateFactorial(argument) {
+    const obj = await getWASMObject('./factorial.wasm')
       
     // Simple method is possible because factorial returns a number, not a string
     document.getElementById('factorialOutput').textContent  = obj.instance.exports.factorial(argument)    
-  }
+}
