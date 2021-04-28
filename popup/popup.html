@@ -2,17 +2,26 @@
     <head>
         <meta charset="UTF-8" />
         <title>Local Storage + WASM test.</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <script src="popup.js"></script>        
         <div id="main">
-            <div id="storage">
-                <h2>Local Storage:</h2>
-                <div id="localStorageContent">&nbsp;</div>
+            <div class="keys" id="storage">
+                <h2>Local Storage</h2>
+            </div>
+            <div class="keys" id="storage">
                 <label for="localStorage">Save to local store:</label>
+            </div>
+            <div class="keys" id="storage">
                 <input type="text" id="localStorage" name="localStorage">
+            </div>                
+            <div class="keys" id="storage">
                 <button id="setLocalStorage">Set local storage</button>
                 <button id="getLocalStorage">Get local storage</button>
+            </div>
+            <div class="keys" id="localStorageContent">
+                &nbsp;
             </div>
             <div id="wasm">
                 <h2>WASM Output:</h2>
