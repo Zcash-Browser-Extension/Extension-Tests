@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" style="width: 357px; height: 400px;">
     <head>
         <meta charset="UTF-8" />
         <title>Local Storage + WASM test.</title>
@@ -6,21 +6,22 @@
     </head>
     <body>
         <script src="popup.js"></script>        
-        <div id="main">
-            <div class="keys" id="storage">
+        <div class="container" id="main">
+            <div class="app-header">
+                <h1>Zmask Tests</h1>
+            </div>            
+            <div class="row" id="storage">
                 <h2>Local Storage</h2>
             </div>
-            <div class="keys" id="storage">
-                <label for="localStorage">Save to local store:</label>
-            </div>
-            <div class="keys" id="storage">
+            <div class="row" id="storage">
+                <label for="localStorage">Save to local store: </label>
                 <input type="text" id="localStorage" name="localStorage">
             </div>                
-            <div class="keys" id="storage">
-                <button id="setLocalStorage">Set local storage</button>
-                <button id="getLocalStorage">Get local storage</button>
+            <div class="row" id="storage">
+                <button class="button btn-secondary btn--rounded" id="setLocalStorage">Set local storage</button>
+                <button class="button btn-secondary btn--rounded" id="getLocalStorage">Get local storage</button>
             </div>
-            <div class="keys" id="localStorageContent">
+            <div class="row" id="localStorageContent">
                 &nbsp;
             </div>
             <div id="wasm">

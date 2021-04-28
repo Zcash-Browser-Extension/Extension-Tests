@@ -1,7 +1,79 @@
-.keys {
+.container {
+  display: flex;
+  flex-direction: column;
+  margin:0 0 0 0;
+}
+
+.app-header {
+  align-items: center;
+  background: #f2f3f4;
+  position: relative;
+  z-index: 12;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.row {
     display: flex;
     flex: 1;
     min-height: 5vh;
     align-items: center;
     justify-content: center;
+    margin:0 0 0 0;
   }
+
+.content {
+    font-size: 0.75rem;
+    font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    color: #989a9b;
+}  
+
+.button {
+  font-size: 0.875rem;
+  font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 6px;
+  width: 90%;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-secondary {
+  color: #037dd6;
+  border: 1px solid #b0d7f2;
+  background-color: #fff;
+}
+
+.btn--rounded {
+  border-radius: 100px;
+  will-change: box-shadow;
+  transition: box-shadow cubic-bezier(0.6, -0.28, 0.735, 0.045) 200ms;
+}
+
+.h2 {
+    font-size: 1rem;
+    font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+    font-weight: 500;
+    color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 4px;
+}
