@@ -10,27 +10,40 @@
             <div class="app-header">
                 <h1>Zmask Tests</h1>
             </div>            
-            <div class="row" id="storage">
-                <h2>Local Storage</h2>
+            <div class="row selected-account__name" id="storage">
+                Local Storage
             </div>
+            <div class="row eth-overview__primary-balance" id="localStorageContent">
+                -
+            </div>            
+
+            <div class="ens-input send__to-row" id="storage">
+                <div class="ens-input__wrapper">
+                    <input class="ens-input__wrapper__input" type="text" dir="auto" placeholder="Save to local storage" id="localStorage" name="localStorage">
+                </div>
+            </div>                         
             <div class="row" id="storage">
-                <label for="localStorage">Save to local store: </label>
-                <input type="text" id="localStorage" name="localStorage">
-            </div>                
-            <div class="row" id="storage">
-                <button class="button btn-secondary btn--rounded" id="setLocalStorage">Set local storage</button>
-                <button class="button btn-secondary btn--rounded" id="getLocalStorage">Get local storage</button>
+                <button class="icon-button" id="setLocalStorage">
+                    <div class="icon-button__circle">
+                        <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.62829 14.3216C8.65369 14.2947 8.67756 14.2664 8.69978 14.2368L12.8311 10.1286C13.0886 9.87975 13.1913 9.51233 13.1 9.16703C13.0087 8.82174 12.7375 8.55207 12.3903 8.46129C12.0431 8.37051 11.6736 8.47268 11.4233 8.72869L8.89913 11.2387L8.89913 1.3293C8.90647 0.970874 8.71837 0.636511 8.40739 0.455161C8.0964 0.273811 7.71112 0.27381 7.40014 0.45516C7.08915 0.636511 6.90105 0.970873 6.90839 1.3293L6.90839 11.2387L4.38422 8.72869C4.13396 8.47268 3.76446 8.37051 3.41722 8.46129C3.06998 8.55207 2.79879 8.82174 2.7075 9.16703C2.61621 9.51233 2.71896 9.87975 2.97641 10.1286L7.11049 14.2395C7.28724 14.4717 7.55784 14.6148 7.85026 14.6306C8.14268 14.6464 8.42727 14.5333 8.62829 14.3216Z" fill="white"></path><rect x="0.260986" y="15.75" width="15.8387" height="2.25" rx="1" fill="white"></rect></svg>
+                    </div>
+                    <span>Set</span>
+                </button>
+                <button class="icon-button" id="getLocalStorage">
+                    <div class="icon-button__circle">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6827 0.889329C13.6458 0.890495 13.609 0.893722 13.5725 0.898996H7.76263C7.40564 0.893947 7.07358 1.08151 6.89361 1.38986C6.71364 1.69821 6.71364 2.07958 6.89361 2.38793C7.07358 2.69628 7.40564 2.88384 7.76263 2.87879H11.3124L1.12335 13.0678C0.864749 13.3161 0.760577 13.6848 0.851011 14.0315C0.941446 14.3786 1.21235 14.6495 1.55926 14.7399C1.90616 14.8303 2.27485 14.7262 2.52313 14.4676L12.7121 4.27857V7.82829C12.7071 8.18528 12.8946 8.51734 13.203 8.69731C13.5113 8.87728 13.8927 8.87728 14.2011 8.69731C14.5094 8.51734 14.697 8.18528 14.6919 7.82829V2.01457C14.7318 1.7261 14.6427 1.43469 14.4483 1.2179C14.2538 1.00111 13.9738 0.880924 13.6827 0.889329Z" fill="white"></path></svg>                    </div>
+                    <span>Get</span>
+                </button>                
             </div>
-            <div class="row" id="localStorageContent">
-                &nbsp;
+            <div class="row selected-account__name" id="wasm">
+                WASM Output:
             </div>
-            <div id="wasm">
-                <h2>WASM Output:</h2>
+            <div class="row">
                 <div id="helloWorldOutput">&nbsp;</div>
-                <button id="runHelloWorld">Run Hello World</button>
+                <button class="button btn-secondary btn--rounded" id="runHelloWorld">Hello World</button>
                 <div id="factorialOutput">&nbsp;</div>
                 <input type="text" id="factorialArg" name="factorialArg" size="4" value="3">
-                <button id="runFactorial">Run Factorial</button>                
+                <button class="button btn-secondary btn--rounded" id="runFactorial">Factorial</button>                
             </div>
         </div>  
     </body>
