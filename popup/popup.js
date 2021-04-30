@@ -45,12 +45,12 @@ async function fetchAndInstantiateHelloWorld() {
       string += String.fromCharCode(output[i])
     }  
   
-    document.getElementById('helloWorldOutput').textContent = string  
+    document.getElementById('wasmOutput').textContent = string  
   }
 
 async function fetchAndInstantiateFactorial(argument) {
     const obj = await getWASMObject('./factorial.wasm')
       
     // Simple method is possible because factorial returns a number, not a string
-    document.getElementById('factorialOutput').textContent  = obj.instance.exports.factorial(argument)    
+    document.getElementById('wasmOutput').textContent  = obj.instance.exports.factorial(argument)    
 }

@@ -2,13 +2,18 @@
   display: flex;
   flex-direction: column;
   margin:0 0 0 0;
+  width: 100%;
 }
 
 .app-header {
+  font-size: 2rem;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 200%;
+  font-style: normal;
+  font-weight: normal;  
   align-items: center;
   background: #f2f3f4;
   position: relative;
-  z-index: 12;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
@@ -18,7 +23,7 @@
 .row {
     display: flex;
     flex: 1;
-    min-height: 5vh;
+    min-height: 4vh;
     align-items: center;
     justify-content: center;
     margin:10px 10px 10px 10px;
@@ -26,7 +31,7 @@
 
 .content {
     font-size: 0.75rem;
-    font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
     line-height: 140%;
     font-style: normal;
     font-weight: normal;
@@ -35,7 +40,7 @@
 
 .button {
   font-size: 0.875rem;
-  font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 140%;
   font-style: normal;
   font-weight: normal;
@@ -69,7 +74,7 @@
   background-color: unset;
   text-align: center;
   font-size: 0.75rem;
-  font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 140%;
   font-style: normal;
   font-weight: normal;
@@ -97,7 +102,7 @@
 
 .selected-account__name {
   font-size: 1rem;
-  font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 140%;
   font-style: normal;
   font-weight: normal;
@@ -111,12 +116,12 @@
 }
 
 .eth-overview__primary-balance {
-  font-size: 2rem;
-  font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 140%;
+  font-size: 1.5rem;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 100%;
   font-style: normal;
   font-weight: normal;
-  color: #000;
+  color: rgb(100, 100, 100);
   justify-content: center;
 }
 
@@ -124,7 +129,9 @@
   margin: 0;
   padding: 0.5rem;
   flex: 0 0 auto;
-  background-color: #f2f3f4;
+}
+
+.divider {
   border-bottom: 1px solid #dedede;
 }
 
@@ -132,6 +139,7 @@
   flex: 1 1 auto;
   width: 95%;
   align-items: center;
+  justify-content: center;  
   background: #fff;
   border-radius: 0.5rem;
   padding: 0.75rem 0.5rem;
