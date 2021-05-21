@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const getLocalStorage = document.getElementById('getLocalStorage')
     const runHelloWorld = document.getElementById('runHelloWorld')
     const runFactorial = document.getElementById('runFactorial')
+    const runhelloWorldGrpc = document.getElementById('runhelloWorldGrpc')
 
     setLocalStorage.addEventListener('click', function() {
         const inputValue = document.getElementById('localStorage').value
@@ -21,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     runFactorial.addEventListener('click', function() {   
         const inputValue = document.getElementById('factorialArg').value  
         fetchAndInstantiateFactorial(inputValue)
+    })     
+
+    runhelloWorldGrpc.addEventListener('click', function() {     
+        fetchHelloWorldGRPC()
     })     
 });
 
@@ -53,4 +58,11 @@ async function fetchAndInstantiateFactorial(argument) {
       
     // Simple method is possible because factorial returns a number, not a string
     document.getElementById('wasmOutput').textContent  = obj.instance.exports.factorial(argument)    
+}
+
+async function fetchHelloWorldGRPC() {
+    
+    document.getElementById('lightwalletdOutput').textContent  = "In fetch"
+    
+    console.log("in fetch")
 }
