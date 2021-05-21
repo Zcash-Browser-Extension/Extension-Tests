@@ -61,8 +61,9 @@ async function fetchAndInstantiateFactorial(argument) {
 }
 
 async function fetchHelloWorldGRPC() {
-    
-    document.getElementById('lightwalletdOutput').textContent  = "In fetch"
-    
-    console.log("in fetch")
+    fetch( 'http://localhost:8000' )
+    .then(resp => resp.json())
+    .then(message => {
+        document.getElementById('lightwalletdOutput').textContent  = message
+    } );    
 }
