@@ -61,7 +61,8 @@ async function fetchAndInstantiateFactorial(argument) {
 }
 
 async function fetchHelloWorldGRPC() {
-    fetch( 'http://localhost:8000' )
+    let url = "http://23.92.18.222:8000"
+    fetch(url)
     .then(resp => resp.json())
     .then(message => {
         document.getElementById('lightwalletdOutput').textContent  = message
