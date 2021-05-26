@@ -1,9 +1,12 @@
+import {getInfo} from './wasmbridge.js'
+
 document.addEventListener('DOMContentLoaded', function() {
     const setLocalStorage = document.getElementById('setLocalStorage')
     const getLocalStorage = document.getElementById('getLocalStorage')
     const runHelloWorld = document.getElementById('runHelloWorld')
     const runFactorial = document.getElementById('runFactorial')
     const runhelloWorldGrpc = document.getElementById('runhelloWorldGrpc')
+    const runGetInfo = document.getElementById('runGetInfo')
 
     setLocalStorage.addEventListener('click', function() {
         const inputValue = document.getElementById('localStorage').value
@@ -26,6 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     runhelloWorldGrpc.addEventListener('click', function() {     
         fetchHelloWorldGRPC()
+    })    
+    
+    runGetInfo.addEventListener('click', function() {     
+        fetchGetInfoGRPC()
     })     
 });
 
@@ -65,6 +72,10 @@ async function fetchHelloWorldGRPC() {
     fetch(url)
     .then(resp => resp.json())
     .then(message => {
-        document.getElementById('lightwalletdOutput').textContent  = message
+        document.getElementById('lightwalletdOutput').textContent = message
     } );    
+}
+
+async function fetchGetInfoGRPC() {
+    document.getElementById('lightwalletdOutput').textContent = getInfo()
 }

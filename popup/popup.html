@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
     </head>
     <body style="margin: 0;">
-        <script src="popup.js"></script>        
+        <script type="module" src="popup.js"></script>        
         <div class="container" id="main">
             <div class="app-header">
                 Zmask Tests
@@ -65,8 +65,11 @@
                 </div>
             </div>              
             <div class="row">                    
-                <button class="button btn-secondary btn--rounded" id="runhelloWorldGrpc">Hello World</button>                
-            </div>            
+                <button class="button btn-secondary btn--rounded" id="runhelloWorldGrpc">Hello World (old GRPC)</button>                
+            </div>    
+            <div class="row">                    
+                <button class="button btn-secondary btn--rounded" id="runGetInfo">getInfo</button>                
+            </div>                     
         </div>  
     </body>
 </html>
